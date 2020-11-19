@@ -56,11 +56,18 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::setActLocateEnable(bool enable)
-{
+{ //设置actTab_Locate的enable属性
     ui->actTab_Locate->setEnabled(enable);
 }
 
-void MainWindow::setACellText(int row, int column, QString text)
+void MainWindow::selectACell(int row, int column)
+{
+    QModelIndex index=theModel->index(row,column);
+    theSelection->clearSelection();
+    theSelection->setCurrentIndex(index,QItemSelectionModel::Select);
+}
+
+void MainWindow::setACellText(int row, int column, QString &text)
 {//定位到单元格，并设置字符串
     QModelIndex index=theModel->index(row,column);//获取模型索引
     theSelection->clearSelection(); //清除现有选择
@@ -68,14 +75,10 @@ void MainWindow::setACellText(int row, int column, QString text)
     theModel->setData(index,text,Qt::DisplayRole);//设置单元格字符串
 }
 
-void MainWindow::setDlgLocateNull()
-{
-    dlgLocate=NULL;
-}
-
-
 void MainWindow::on_currentChanged(const QModelIndex &current, const QModelIndex &previous)
 {
+    Q_UNUSED(previous)
+
     if (current.isValid()) //当前模型索引有效
     {
         LabCellPos->setText(QString::asprintf("当前单元格：%d行，%d列",
@@ -115,7 +118,8 @@ void MainWindow::on_actTab_SetHeader_triggered()
         dlgSetHeaders = new QWDialogHeaders(this);
 
     if (dlgSetHeaders->headerList().count()!=theModel->columnCount())
-    {//如果表头列数变化，重新初始化
+    {
+//只需在创建时传递参数给对话框,由于对话框只是隐藏，界面内容保存
         QStringList strList;
         for (int i=0;i<theModel->columnCount();i++)//获取现有的表头标题
             strList.append(theModel->headerData(i,Qt::Horizontal,Qt::DisplayRole).toString());
@@ -133,8 +137,8 @@ void MainWindow::on_actTab_SetHeader_triggered()
 void MainWindow::on_actTab_Locate_triggered()
 {//创建 StayOnTop的对话框，对话框关闭时自动删除
  //通过控制actTab_Locate的enable属性避免重复点击
-    ui->actTab_Locate->setEnabled(false);
-
+//    ui->actTab_Locate->setEnabled(false);
+    QWDialogLocate  *dlgLocate;//定位单元格对话框，show()调用，关闭时自己删除
     dlgLocate = new QWDialogLocate(this); //创建对话框，传递指针
     dlgLocate->setAttribute(Qt::WA_DeleteOnClose); //对话框关闭时自动删除对话框对象,用于不需要读取返回值的对话框
     Qt::WindowFlags    flags=dlgLocate->windowFlags(); //获取已有flags
@@ -147,11 +151,23 @@ void MainWindow::on_actTab_Locate_triggered()
     if (curIndex.isValid())
        dlgLocate->setSpinValue(curIndex.row(),curIndex.column());
 
+//对话框释放信号，设置单元格文字
+    connect(dlgLocate,SIGNAL(changeCellText(int,int,QString&)),
+                     this,SLOT(setACellText(int,int,QString&)));
+
+//对话框是否信号，设置action的属性
+    connect(dlgLocate,SIGNAL(changeActionEnable(bool)),
+                     this,SLOT(setActLocateEnable(bool)));
+
+//主窗口是否信号，修改对话框上的spinBox的值
+    connect(this,SIGNAL(cellIndexChanged(int,int)),
+                     dlgLocate,SLOT(setSpinValue(int,int)));
+
     dlgLocate->show(); //非模态显示对话框
+//    this->show();
 }
 
 void MainWindow::on_tableView_clicked(const QModelIndex &index)
 {//单击单元格时，将单元格的行号、列号设置到对话框上
-    if (dlgLocate!=NULL) //对话框存在
-        dlgLocate->setSpinValue(index.row(),index.column());
+    emit cellIndexChanged(index.row(),index.column());
 }

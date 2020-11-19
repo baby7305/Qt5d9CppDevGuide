@@ -12,7 +12,7 @@ QWDialogSize::QWDialogSize(QWidget *parent) :
 
 QWDialogSize::~QWDialogSize()
 {
-    QMessageBox::information(this,"提示","设置表格行列数对话框被删除");
+//    QMessageBox::information(this,"提示","设置表格行列数对话框被删除");
     delete ui;
 }
 
