@@ -1,5 +1,5 @@
-﻿#ifndef WBATTERY_H
-#define WBATTERY_H
+﻿#ifndef QMYBATTERY_H
+#define QMYBATTERY_H
 
 #include    <QWidget>
 #include    <QColor>
@@ -39,4 +39,4 @@ signals:
 public slots:
 };
 
-#endif // WBATTERY_H
+#endif // QMYBATTERY_H
