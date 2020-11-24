@@ -1,7 +1,7 @@
 add_rules("mode.debug", "mode.release")
 
 target("samp2_4")
-    add_rules("qt.widgetapp")
+    add_rules("qt.widgetapp","qt.qrc")
     add_headerfiles("*.h")
     add_files("*.cpp")
     add_files("qwmainwind.ui")
