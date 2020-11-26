@@ -1,7 +1,10 @@
-#ifndef QWCOMBOBOXDELEGATE_H
+﻿#ifndef QWCOMBOBOXDELEGATE_H
 #define QWCOMBOBOXDELEGATE_H
 
 #include    <QItemDelegate>
+
+#pragma once
+#pragma execution_character_set("utf-8")
 
 class QWComboBoxDelegate : public QItemDelegate
 {
