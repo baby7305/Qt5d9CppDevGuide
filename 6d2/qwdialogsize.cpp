@@ -1,4 +1,4 @@
-#include "qwdialogsize.h"
+﻿#include "qwdialogsize.h"
 #include "ui_qwdialogsize.h"
 
 #include    <QMessageBox>
