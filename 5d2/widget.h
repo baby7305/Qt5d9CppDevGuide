@@ -4,6 +4,8 @@
 #include    <QWidget>
 #include    <QStringListModel>
 
+#pragma once
+#pragma execution_character_set("utf-8")
 
 namespace Ui {
 class Widget;
