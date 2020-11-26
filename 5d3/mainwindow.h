@@ -8,6 +8,9 @@
 
 #define     FixedColumnCount    6       //文件固定6列
 
+#pragma once
+#pragma execution_character_set("utf-8")
+
 namespace Ui {
 class MainWindow;
 }
