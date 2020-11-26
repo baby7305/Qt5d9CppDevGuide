@@ -7,7 +7,7 @@
 #include    <QTextStream>
 #include    <QFontDialog>
 
-#include    <qwmainwindow.h>
+#include    "qwmainwindow.h"
 
 QFormDoc::QFormDoc(QWidget *parent) :
     QWidget(parent),
