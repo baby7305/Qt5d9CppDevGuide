@@ -10,6 +10,8 @@
 #include    "qwfloatspindelegate.h"
 #include    "qwcomboboxdelegate.h"
 
+#pragma once
+#pragma execution_character_set("utf-8")
 
 #define     FixedColumnCount    6       //文件固定6行
 
