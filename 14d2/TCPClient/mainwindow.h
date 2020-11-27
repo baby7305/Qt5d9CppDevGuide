@@ -5,6 +5,9 @@
 #include    <QTcpSocket>
 #include    <QLabel>
 
+#pragma once
+#pragma execution_character_set("utf-8")
+
 namespace Ui {
 class MainWindow;
 }
