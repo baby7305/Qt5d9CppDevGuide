@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 #include    <QDir>
@@ -116,8 +116,8 @@
 
 //}
 
-bool MainWindow::openDatabyStream(const QString &aFileName)
-{
+// bool MainWindow::openDatabyStream(const QString &aFileName)
+// {
 //    QFile   aFile;
 //    aFile.setFileName(aFileName);
 
@@ -143,7 +143,7 @@ bool MainWindow::openDatabyStream(const QString &aFileName)
 //    ui->tabWidget->setCurrentIndex(0);
 //    return  true;
 
-}
+// }
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
