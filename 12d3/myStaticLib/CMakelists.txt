@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1.0)
 
-project(helloworld VERSION 1.0.0 LANGUAGES CXX)
+project(myStaticLib VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -15,11 +15,17 @@ endif()
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_executable(helloworld
-    mainwindow.ui
-    mainwindow.cpp
-    main.cpp
-    resources.qrc
-)
+qt5_wrap_ui(UI_FILES qwdialogpen.ui)
+qt5_wrap_cpp(UI_H_FILES qwdialogpen.h)
 
-target_link_libraries(helloworld Qt5::Widgets)
+include_directories (${PROJECT_SOURCE_DIR})
+include_directories (${PROJECT_BINARY_DIR})
+
+add_library(myStaticLib STATIC
+        qwdialogpen.cpp
+        ${UI_FILES}
+        ${UI_H_FILES}
+        )
+
+target_link_libraries(myStaticLib PRIVATE Qt5::Widgets)
+target_compile_definitions(myStaticLib PRIVATE MYSTATICLIB_LIBRARY)
