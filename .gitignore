@@ -63,3 +63,6 @@ compile_commands.json
 
 # MacOS Cache
 *.DS_Store
+
+# 忽略xmake导包
+*.pkg/
