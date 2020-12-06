@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.1.0)
 
-project(helloworld VERSION 1.0.0 LANGUAGES CXX)
+project(samp7_2 VERSION 1.0.0 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_AUTOMOC ON)
@@ -15,11 +15,14 @@ endif()
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_executable(helloworld
+add_executable(samp7_2
     mainwindow.ui
     mainwindow.cpp
+    qwcomboboxdelegate.cpp
+    qwfloatspindelegate.cpp
+    qwintspindelegate.cpp
     main.cpp
-    resources.qrc
+    res.qrc
 )
 
-target_link_libraries(helloworld Qt5::Widgets)
+target_link_libraries(samp7_2 Qt5::Widgets)
