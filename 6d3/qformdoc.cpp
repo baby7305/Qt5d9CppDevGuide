@@ -10,7 +10,7 @@
 #include    <QFileInfo>
 #include    <QMessageBox>
 
-#include    <qwmainwindow.h>
+#include    "qwmainwindow.h"
 
 QFormDoc::QFormDoc(QWidget *parent) :
     QWidget(parent),
