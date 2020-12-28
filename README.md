@@ -34,7 +34,7 @@
 ## xmake编译构建 ##
 
 - 显示详细报错信息
-`xmake -zvD`
+`xmake -rvD`
 - 清空项目，刷新环境，不如直接删掉.xmake和build目录直接
 `xmake c`
 - 构建项目
