@@ -13,7 +13,7 @@ if(CMAKE_VERSION VERSION_LESS "3.7.0")
     set(CMAKE_INCLUDE_CURRENT_DIR ON)
 endif()
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 add_executable(samp5_3
     mainwindow.ui
@@ -22,4 +22,4 @@ add_executable(samp5_3
     res.qrc
 )
 
-target_link_libraries(samp5_3 Qt5::Widgets)
+target_link_libraries(samp5_3 Qt6::Widgets)
