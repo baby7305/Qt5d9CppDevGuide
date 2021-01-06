@@ -100,7 +100,7 @@ void Dialog::on_btnSetIntv_clicked()
 void Dialog::on_btnStart_clicked()
 {
     fTimer->start();//定时器开始工作
-    fTimeCounter.start();//计时器开始工作
+    qElapsedTimer.start();//计时器开始工作
 //更新各按键的状态
     ui->btnStart->setEnabled(false);
     ui->btnStop->setEnabled(true);
@@ -110,8 +110,7 @@ void Dialog::on_btnStart_clicked()
 void Dialog::on_btnStop_clicked()
 {
     fTimer->stop(); //定时器停止
-
-    int tmMsec=fTimeCounter.elapsed();//毫秒数
+    int tmMsec=qElapsedTimer.elapsed();//毫秒数
     int ms=tmMsec%1000; //余数毫秒
     int sec=tmMsec/1000; //整秒
 

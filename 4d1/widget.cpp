@@ -22,7 +22,7 @@ void Widget::on_btnCal_clicked()
     float total=num*price;//相乘计算
     QString str;
 //    str=str.setNum(total,'f',2); //浮点数2位小数
-    str=str.sprintf("%.2f",total); //格式化输出浮点数
+    str=str.asprintf("%.2f",total); //格式化输出浮点数
     ui->editTotal->setText(str);//在文本框里显示
 }
 

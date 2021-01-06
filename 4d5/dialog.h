@@ -4,6 +4,7 @@
 #include    <QDialog>
 #include    <QTimer>
 #include    <QTime>
+#include    <QElapsedTimer>
 
 namespace Ui {
 class Dialog;
@@ -14,8 +15,7 @@ class Dialog : public QDialog
     Q_OBJECT
 private:
     QTimer *fTimer;  //定时器
-
-    QTime   fTimeCounter;//计时器
+    QElapsedTimer qElapsedTimer;//计时器
 
 public:
     explicit Dialog(QWidget *parent = 0);

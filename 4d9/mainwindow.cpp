@@ -50,7 +50,7 @@ void MainWindow::createItemsARow(int rowNo,QString Name,QString Sex,QDate birth,
         item->setCheckState(Qt::Checked);
     else
         item->setCheckState(Qt::Unchecked);
-    item->setBackgroundColor(Qt::yellow);//Qt::green  lightGray  yellow
+    item->setBackground(Qt::yellow);//Qt::green  lightGray  yellow
     ui->tableInfo->setItem(rowNo,MainWindow::colPartyM,item);//为单元格设置Item
 
 //分数
@@ -101,7 +101,7 @@ void MainWindow::on_btnSetHeader_clicked()
        QFont font=headerItem->font();//获取原有字体设置
        font.setBold(true);//设置为粗体
        font.setPointSize(12);//字体大小
-       headerItem->setTextColor(Qt::red);//字体颜色
+       headerItem->setForeground(Qt::red);//字体颜色
        headerItem->setFont(font);//设置字体
        ui->tableInfo->setHorizontalHeaderItem(i,headerItem); //设置表头单元格的Item
     }
