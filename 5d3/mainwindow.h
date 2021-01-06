@@ -5,6 +5,7 @@
 #include    <QLabel>
 #include    <QStandardItemModel>
 #include    <QItemSelectionModel>
+#include    <QRegExp>
 
 #define     FixedColumnCount    6       //文件固定6列
 

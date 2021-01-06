@@ -5,6 +5,7 @@
 #include    <QLabel>
 #include    <QStandardItemModel>
 #include    <QItemSelectionModel>
+#include    <QRegExp>
 
 #include    "qwintspindelegate.h"
 #include    "qwfloatspindelegate.h"

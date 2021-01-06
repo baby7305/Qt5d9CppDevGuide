@@ -16,7 +16,7 @@ void MainWindow::iniModelFromStringList(QStringList& aFileContent)
 
 //设置表头
     header=aFileContent.at(0);//第1行是表头
-    headerList=header.split(QRegExp("\\s+"),QString::SkipEmptyParts);//一个或多个空格、TAB等分隔符隔开的字符串
+    headerList=header.split(QRegularExpression("\\s+"),Qt::SkipEmptyParts);//一个或多个空格、TAB等分隔符隔开的字符串
     theModel->setHorizontalHeaderLabels(headerList); //设置表头文字
 
 //设置表格数据
@@ -24,7 +24,7 @@ void MainWindow::iniModelFromStringList(QStringList& aFileContent)
     for (i=1;i<rowCnt;i++)
     {
         aLineText=aFileContent.at(i); //获取stringList的一行
-        tmpList=aLineText.split(QRegExp("\\s+"),QString::SkipEmptyParts);//一个或多个空格、TAB等分隔符隔开的字符串分解为多个字符串
+        tmpList=aLineText.split(QRegularExpression("\\s+"),Qt::SkipEmptyParts);//一个或多个空格、TAB等分隔符隔开的字符串分解为多个字符串
         for (j=0;j<FixedColumnCount-1;j++)
         {
             aItem=new QStandardItem(tmpList.at(j));//创建item
