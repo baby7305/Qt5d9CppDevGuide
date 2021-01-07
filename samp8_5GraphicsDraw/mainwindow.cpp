@@ -62,7 +62,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->View,SIGNAL(keyPress(QKeyEvent*)),
                      this, SLOT(on_keyPress(QKeyEvent*)));
 
-    qsrand(QTime::currentTime().second());
+    qRandomGenerator.seed(QTime::currentTime().minute());
 }
 
 MainWindow::~MainWindow()
@@ -180,7 +180,7 @@ void MainWindow::on_actItem_Rect_triggered()
                    | QGraphicsItem::ItemIsFocusable);
     item->setBrush(QBrush(Qt::yellow));
     item->setZValue(++frontZ);
-    item->setPos(-50+(qrand() % 100),-50+(qrand() % 100));
+    item->setPos(-50+(qRandomGenerator.generate() % 100),-50+(qRandomGenerator.generate() % 100));
 
     item->setData(ItemId,++seqNum);
     item->setData(ItemDesciption,"矩形");
@@ -198,7 +198,7 @@ void MainWindow::on_actItem_Ellipse_triggered()
                    | QGraphicsItem::ItemIsFocusable);
     item->setBrush(QBrush(Qt::blue)); //填充颜色
     item->setZValue(++frontZ); //用于叠放顺序
-    item->setPos(-50+(qrand() % 100),-50+(qrand() % 100)); //初始位置
+    item->setPos(-50+(qRandomGenerator.generate() % 100),-50+(qRandomGenerator.generate() % 100)); //初始位置
     item->setData(ItemId,++seqNum);  //自定义数据，ItemId键
     item->setData(ItemDesciption,"椭圆"); //自定义数据，ItemDesciption键
 
@@ -217,7 +217,7 @@ void MainWindow::on_actItem_Polygon_triggered()
     points.append(QPointF(100,40));
     points.append(QPointF(-100,40));
     item->setPolygon(points);
-    item->setPos(-50+(qrand() % 100),-50+(qrand() % 100));
+    item->setPos(-50+(qRandomGenerator.generate() % 100),-50+(qRandomGenerator.generate() % 100));
 
     item->setFlags(QGraphicsItem::ItemIsMovable
                    | QGraphicsItem::ItemIsSelectable
@@ -341,7 +341,7 @@ void MainWindow::on_actItem_Line_triggered()
     item->setPen(pen);
 
     item->setZValue(++frontZ);
-    item->setPos(-50+(qrand() % 100),-50+(qrand() % 100));
+    item->setPos(-50+(qRandomGenerator.generate() % 100),-50+(qRandomGenerator.generate() % 100));
 
     item->setData(ItemId,++seqNum);
     item->setData(ItemDesciption,"直线");
@@ -367,7 +367,7 @@ void MainWindow::on_actItem_Text_triggered()
     item->setFlags(QGraphicsItem::ItemIsMovable
                    | QGraphicsItem::ItemIsSelectable
                    | QGraphicsItem::ItemIsFocusable);
-    item->setPos(-50+(qrand() % 100),-50+(qrand() % 100));
+    item->setPos(-50+(qRandomGenerator.generate() % 100),-50+(qRandomGenerator.generate() % 100));
     item->setZValue(++frontZ);
 
     item->setData(ItemId,++seqNum);
@@ -423,7 +423,7 @@ void MainWindow::on_actItem_Circle_triggered()
                    | QGraphicsItem::ItemIsFocusable);
     item->setBrush(QBrush(Qt::cyan));
     item->setZValue(++frontZ);
-    item->setPos(-50+(qrand() % 100),-50+(qrand() % 100));
+    item->setPos(-50+(qRandomGenerator.generate() % 100),-50+(qRandomGenerator.generate() % 100));
 
     item->setData(ItemId,++seqNum);
     item->setData(ItemDesciption,"圆形");
@@ -441,7 +441,7 @@ void MainWindow::on_actItem_Triangle_triggered()
     points.append(QPointF(60,40));
     points.append(QPointF(-60,40));
     item->setPolygon(points);
-    item->setPos(-50+(qrand() % 100),-50+(qrand() % 100));
+    item->setPos(-50+(qRandomGenerator.generate() % 100),-50+(qRandomGenerator.generate() % 100));
 
     item->setFlags(QGraphicsItem::ItemIsMovable
                    | QGraphicsItem::ItemIsSelectable

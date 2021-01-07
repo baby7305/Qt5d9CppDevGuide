@@ -5,6 +5,7 @@
 
 #include    <QGraphicsScene>
 #include    <QLabel>
+#include    <QRandomGenerator>
 
 namespace Ui {
 class MainWindow;
@@ -29,6 +30,7 @@ private:
     QLabel  *labItemCord;
     QLabel  *labItemInfo;
 
+    QRandomGenerator qRandomGenerator;
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();

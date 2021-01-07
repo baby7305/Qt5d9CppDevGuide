@@ -2,6 +2,7 @@
 #include "ui_widget.h"
 
 #include    <QPainter>
+#include    <QPainterPath>
 #include    <QtMath>
 
 void Widget::paintEvent(QPaintEvent *event)
