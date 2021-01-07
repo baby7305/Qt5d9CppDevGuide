@@ -141,7 +141,7 @@ bool MainWindow::openDatabyStream(const QString &aFileName)
 
 ////    m_curTextFile=aFileName;
 //    ui->tabWidget->setCurrentIndex(0);
-//    return  true;
+    return  true;
 
 }
 

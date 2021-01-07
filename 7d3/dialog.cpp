@@ -598,7 +598,7 @@ void Dialog::on_pushButton_58_clicked()
 {
     showBtnInfo(sender());
     QFileInfo  fileInfo(ui->editFile->text());
-    QDateTime  dt=fileInfo.created();
+    QDateTime  dt=fileInfo.birthTime();
     QString  str=dt.toString("yyyy-MM-dd hh:mm:ss");
     ui->plainTextEdit->appendPlainText(str+"\n");
 }
