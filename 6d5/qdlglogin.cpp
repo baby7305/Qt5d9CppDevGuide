@@ -40,7 +40,7 @@ QString QDlgLogin::encrypt(const QString &str)
 { //字符串MD5算法加密
     QByteArray btArray;
 
-    btArray.append(str);//加入原始字符串
+    btArray.append(str.toUtf8());//加入原始字符串
 
     QCryptographicHash hash(QCryptographicHash::Md5);  //Md5加密算法
 
