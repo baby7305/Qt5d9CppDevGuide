@@ -4,10 +4,12 @@ set_languages("cxx17")
 target("samp8_4")
     add_rules("qt.widgetapp")
     add_headerfiles("*.h")
+    add_includedirs(".")
     add_files("*.cpp")
     add_files("mainwindow.ui")
     -- add files with Q_OBJECT meta (only for qt.moc)
     add_files("mainwindow.h")
+    add_files("qwgraphicsview.h")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
